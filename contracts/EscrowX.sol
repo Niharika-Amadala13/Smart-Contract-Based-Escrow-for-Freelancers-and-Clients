@@ -18,7 +18,7 @@ contract EscrowX {
     event ProjectCreated(uint256 projectId, address client, address freelancer, uint256 amount);
     event ProjectFunded(uint256 projectId);
     event ProjectApproved(uint256 projectId);
-    event FundsReleased(uint256 projectId);
+    event FundsTransferredToFreelancer(uint256 projectId); // Renamed for clarity
     event ProjectCancelled(uint256 projectId);
     event FundsWithdrawn(uint256 projectId, address freelancer);
     event RefundIssued(uint256 projectId, address client);
@@ -80,7 +80,7 @@ contract EscrowX {
         project.amount = 0; // Prevent re-entrancy
         payable(project.freelancer).transfer(payment);
 
-        emit FundsReleased(_projectId);
+        emit FundsTransferredToFreelancer(_projectId);
         emit FundsWithdrawn(_projectId, msg.sender);
     }
 
@@ -102,5 +102,26 @@ contract EscrowX {
         }
 
         emit ProjectCancelled(_projectId);
+    }
+
+    function getProjectStatus(uint256 _projectId) external view returns (
+        address client,
+        address freelancer,
+        uint256 amount,
+        bool isApproved,
+        bool isCancelled,
+        bool isFunded,
+        bool isCompleted
+    ) {
+        Project memory project = projects[_projectId];
+        return (
+            project.client,
+            project.freelancer,
+            project.amount,
+            project.isApproved,
+            project.isCancelled,
+            project.isFunded,
+            project.isCompleted
+        );
     }
 }
