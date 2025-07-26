@@ -23,6 +23,7 @@ contract EscrowX is ReentrancyGuard {
     event ProjectCancelled(uint256 indexed projectId);
     event FreelancerPaid(uint256 indexed projectId, address indexed freelancer, uint256 amount);
     event RefundIssued(uint256 indexed projectId, address indexed client, uint256 amount);
+    event AmountUpdated(uint256 indexed projectId, uint256 oldAmount, uint256 newAmount);
 
     modifier onlyClient(uint256 _projectId) {
         require(msg.sender == projects[_projectId].client, "Only client allowed");
@@ -41,6 +42,7 @@ contract EscrowX is ReentrancyGuard {
 
     function createProject(address _freelancer, uint256 _amount) external returns (uint256) {
         require(_freelancer != address(0), "Freelancer address required");
+        require(_freelancer != msg.sender, "Client and freelancer must be different");
         require(_amount > 0, "Amount must be greater than zero");
 
         projectCounter++;
@@ -56,6 +58,18 @@ contract EscrowX is ReentrancyGuard {
 
         emit ProjectCreated(projectCounter, msg.sender, _freelancer, _amount);
         return projectCounter;
+    }
+
+    function updateProjectAmount(uint256 _projectId, uint256 _newAmount) external projectExists(_projectId) onlyClient(_projectId) {
+        Project storage project = projects[_projectId];
+        require(!project.isFunded, "Cannot update amount after funding");
+        require(!project.isCancelled, "Cannot update cancelled project");
+        require(_newAmount > 0, "New amount must be greater than zero");
+
+        uint256 oldAmount = project.amount;
+        project.amount = _newAmount;
+
+        emit AmountUpdated(_projectId, oldAmount, _newAmount);
     }
 
     function fundProject(uint256 _projectId) external payable projectExists(_projectId) onlyClient(_projectId) {
