@@ -26,7 +26,7 @@ contract SecureEscrow is ReentrancyGuard {
     event ProjectDisputed(uint256 indexed projectId);
     event ProjectAmountUpdated(uint256 indexed projectId, uint256 oldAmount, uint256 newAmount);
 
-    // Modifiers
+    // Modifier
     modifier onlyClient(uint256 _projectId) {
         require(msg.sender == projects[_projectId].client, "Only client can perform this action");
         _;
