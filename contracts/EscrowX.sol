@@ -4,6 +4,7 @@ pragma solidity ^0.8.17;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
+
 contract SmartRoyalty is Ownable, ReentrancyGuard {
     uint256 public constant BASIS_POINTS = 10_000;
 
