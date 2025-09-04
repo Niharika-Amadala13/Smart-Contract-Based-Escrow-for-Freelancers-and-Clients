@@ -108,7 +108,6 @@ contract SmartRoyalty is Ownable, ReentrancyGuard {
         emit Withdrawal(msg.sender, amount);
     }
 
-
     /**
      * @notice View recipients and shares for a contentId.
      */
