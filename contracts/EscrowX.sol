@@ -93,7 +93,6 @@ contract SmartRoyalty is Ownable, ReentrancyGuard {
 
         emit RoyaltiesFunded(contentId, amount);
     }
-
     /**
      * @notice Withdraw credited royalty balance.
      */
