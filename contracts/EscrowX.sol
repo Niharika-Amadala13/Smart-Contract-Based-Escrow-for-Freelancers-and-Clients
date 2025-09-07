@@ -126,7 +126,6 @@ contract SmartRoyalty is Ownable, ReentrancyGuard {
             unchecked { ++i; }
         }
     }
-
     /**
      * @notice Update a recipient address for a contentId.
      * @dev Callable by the oldRecipient or the contract owner. Moves pending balance if present.
