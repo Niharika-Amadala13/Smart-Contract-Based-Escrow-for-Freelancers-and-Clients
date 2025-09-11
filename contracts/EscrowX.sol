@@ -30,6 +30,7 @@ contract SmartRoyalty is Ownable, ReentrancyGuard {
         _;
     }
 
+
     /**
      * @notice Configure royalty recipients for a contentId.
      * @dev Only owner can call.
@@ -90,7 +91,6 @@ contract SmartRoyalty is Ownable, ReentrancyGuard {
             // send remainder to owner to avoid locking funds; owner can re-distribute later
             pendingWithdrawals[owner()] += remainder;
         }
-
         emit RoyaltiesFunded(contentId, amount);
     }
     /**
