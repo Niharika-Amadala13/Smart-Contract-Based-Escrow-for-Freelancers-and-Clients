@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EscrowX - Decentralized Escrow</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>EscrowX</h1>
+    <p>Smart Contract-Based Escrow for Freelancers and Clients</p>
+
+    <section class="card">
+      <h2>Create Escrow</h2>
+      <input id="seller" placeholder="Seller Address" />
+      <input id="arbiter" placeholder="Arbiter Address" />
+      <input id="amount" placeholder="Amount in ETH" />
+      <button id="createBtn">Create Escrow</button>
+      <p id="createResult"></p>
+    </section>
+
+    <section class="card">
+      <h2>Fund Escrow</h2>
+      <input id="fundEscrowId" placeholder="Escrow ID" />
+      <button id="fundBtn">Fund</button>
+      <p id="fundResult"></p>
+    </section>
+
+    <section class="card">
+      <h2>Resolve Escrow (Arbiter)</h2>
+      <input id="resolveEscrowId" placeholder="Escrow ID" />
+      <label><input type="radio" name="resolve" value="release" checked /> Release to Seller</label>
+      <label><input type="radio" name="resolve" value="refund" /> Refund Buyer</label>
+      <button id="resolveBtn">Resolve</button>
+      <p id="resolveResult"></p>
+    </section>
+
+    <section class="card">
+      <h2>View Escrow</h2>
+      <input id="viewEscrowId" placeholder="Escrow ID" />
+      <button id="viewBtn">View</button>
+      <pre id="viewResult"></pre>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
+     
