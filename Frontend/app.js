@@ -1,5 +1,5 @@
 // EscrowX Frontend using ethers.js
-// Make sure to replace contractAddress with your deployed address
+// Make sure to replace contractAddress with your deployed address 
 
 const contractAddress = "REPLACE_WITH_DEPLOYED_CONTRACT_ADDRESS";
 const contractABI = [
