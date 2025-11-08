@@ -11,7 +11,6 @@ contract SmartRoyalty is Ownable, ReentrancyGuard {
         address recipient;
         uint96 share; 
     }
-
     // contentId => array of royalty splits
     mapping(uint256 => Royalty[]) private royalties;
 
