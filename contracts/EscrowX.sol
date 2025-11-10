@@ -56,6 +56,7 @@ contract SmartRoyalty is Ownable, ReentrancyGuard {
             unchecked { ++i; }
         }
 
+
         require(total == BASIS_POINTS, "Shares must total 10000");
         emit RoyaltiesSet(contentId);
     }
