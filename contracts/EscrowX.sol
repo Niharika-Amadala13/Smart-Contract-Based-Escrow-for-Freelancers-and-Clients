@@ -29,6 +29,7 @@ contract SmartRoyalty is Ownable, ReentrancyGuard {
         _;
     }
 
+
     /**
      * @notice Configure royalty recipients for a contentId.
      * @dev Only owner can call.
