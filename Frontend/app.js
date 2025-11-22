@@ -1,6 +1,6 @@
 // EscrowX Frontend using ethers.js
 // Make sure to replace contractAddress with your deployed address 
-
+ 
 const contractAddress = "REPLACE_WITH_DEPLOYED_CONTRACT_ADDRESS";
 const contractABI = [
   "function createEscrow(address payable _seller, address _arbiter, uint256 _amount) returns (uint256)",
