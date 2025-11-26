@@ -5,7 +5,7 @@ EscrowX - Decentralized Escrow Platform
 
 ## Project Description
 EscrowX is a blockchain-powered escrow platform designed to provide secure, transparent, and trustless transactions between freelancers and clients. By leveraging smart contract technology, EscrowX ensures fair compensation and reduces the risk of payment disputes.
-
+ 
 ## Project Vision
 To revolutionize freelance work by creating a transparent, secure, and efficient payment mechanism that protects both clients and freelancers through blockchain technology.
 
